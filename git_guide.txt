@@ -1,0 +1,53 @@
+create empty file 
+type nul > filename
+
+wriet in file
+echo line >> filename - overwrite
+echo line > filename - append
+
+create repo 
+git init
+
+check status
+git status
+
+rename branch
+git branch -m oldname newname
+
+it's written that checkout restores added files but 
+git restore --staged filename 
+or git reset 
+does it actually. 
+
+отмена коммита:
+Допустим, вы сделали commit в git, но поняли, что он недостаточно хорош. В таком случае можно продолжить правки, а при следующем коммите набрать
+    git commit -a --amend
+Эта команда отменит последний коммит (но не изменения, которые вы внесли, они сохранятся).
+    git reset --soft HEAD^ 
+Эта команда отменит последний коммит и все правки (вернет к пр комиту). 
+    git reset --hard HEAD^
+Если был push, то ничего не остается, кроме как отменить коммит новым комитом и сделать push:
+    git revert commit-sha1
+
+indexation - git knows about changes in commit. hen we add file we add indexation. 
+
+git commit
+(Vim) вам нужно нажать клавишу ESC, ввести :wq и нажать Enter
+
+git log --pretty=oneline
+
+git config --global format.pretty format:"%C(auto)%h %d%Creset %s%n%Cgreen%ad%Creset %aN <%aE>%n"
+
+git log --graph to see all comnits and branches. 
+
+git config --global format.pretty medium - DEFAULT logs
+
+When writing, the new value is written to the repository local configuration file by default, and options --system, --global, --worktree, --file <filename> can be used to tell the command to write to that location (you can say --local but that is the default).
+
+Для хеша достаточно первых 7 символов.
+
+git switch - переключение веток. Если переключиться на любую ветку (хоть на текущую), мы попадем на ее последний коммит. 
+
+TAGS.    
+git tag nameoftag - так можно добавить название версии, чтобы как-то обозначить важную веху. 
+git checkout v1^ (or v1~1) - перенесет на 1 коммит до версии v1. 
